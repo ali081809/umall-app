@@ -1,0 +1,57 @@
+.login header{
+    position: relative;
+    width: 100vw;
+    height: 0.8rem;
+    color: #fff;
+    text-align: center;
+    line-height: 0.8rem;
+    background: #FF9900;
+    font-size: 0.4rem;
+}
+.login header a{
+    position: absolute;
+    top: 0;
+    right: 0.3rem;
+    color: #fff;
+}
+.login .userBox{
+    margin-top: 3rem;
+}
+.login .username{
+    width: 80%;
+    height: 1rem;
+    line-height: 1rem;
+    margin: auto;
+    font-size: 0.18rem;
+    border-bottom: 1px solid #999;
+}
+.login .username input{
+    border: none;
+    height: 0.5rem;
+}
+.login .rember{
+    position: relative;
+    width: 80%;
+    margin: auto;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.14rem;
+}
+.login .rember .rember_a{
+    margin-top: 0.1rem;
+    position: absolute;
+    right: 0;
+}
+.login .btn{
+    cursor: pointer;
+    position: relative;
+    width: 80%;
+    height: 0.8rem;
+    margin:0.4rem auto;
+    border-radius: 0.1rem;
+    color: #fff;
+    font-size: 0.3rem;
+    line-height: 0.8rem;
+    text-align: center;
+    background: #FF9900;
+}
