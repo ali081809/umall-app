@@ -48,9 +48,11 @@ export default class Register extends Component {
             console.log(this.state.user)
             if (res.data.code === 200) {
                 this.empty()
-                // alert(res.data.msg);
-                this.showToast(res.data.msg)
+                alert(res.data.msg);
+                // this.showToast(res.data.msg)
                 this.props.history.push("/login")
+            }else{
+                alert(res.data.msg)
             }
         })
     }

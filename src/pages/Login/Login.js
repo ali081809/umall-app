@@ -25,7 +25,9 @@ export default class Login extends Component {
     // 点击登录
     login(){
         rqusestLogin(this.state.user).then(res=>{
-
+            if(res.data.code===200){
+                this.props.history.push("/index")
+            }
         })
     }
     render() {

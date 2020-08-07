@@ -1,0 +1,16 @@
+.nav{
+    position: relative;
+    height: 0.8rem;
+    background: #fff;
+    border: 1px solid red;
+}
+.nav img{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.nav .findName{
+    position: absolute;
+    top: 40%;
+    right: 0;
+}
