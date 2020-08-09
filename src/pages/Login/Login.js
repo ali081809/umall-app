@@ -3,6 +3,8 @@ import {NavLink} from "react-router-dom"
 import "./login.css"
 // 引入请求接口
 import {rqusestLogin} from "../../util/request"
+// 引入弹框
+import Alert from "../../util/Alert"
 export default class Login extends Component {
     constructor(){
         super()
@@ -27,6 +29,8 @@ export default class Login extends Component {
         rqusestLogin(this.state.user).then(res=>{
             if(res.data.code===200){
                 this.props.history.push("/index")
+            }else{
+                Alert(res.data.msg)
             }
         })
     }

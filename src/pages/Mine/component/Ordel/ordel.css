@@ -1,0 +1,33 @@
+.ordel{
+    background: #fff;
+    /* border: 1px solid red; */
+}
+.ordel .ordel_top{
+    padding-left: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.3rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+}
+.ordel .ordel_top a{
+    color: #B9BAB8;
+}
+.ordel .ordel_list{
+    height: 1.4rem;
+    text-align: center;
+    line-height: 0.6rem;
+}
+.ordel .ordel_list li{
+    float: left;
+    margin-left: 0.5rem;
+}
+.ordel .address{
+    border-top: 5px solid #FAFAFA;
+    height: 1.4rem;
+    padding-left: .4rem;
+    line-height: 1.4rem;
+    font-size: .34rem;
+    color: #878B95;
+}

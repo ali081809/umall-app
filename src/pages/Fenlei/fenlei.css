@@ -1,0 +1,55 @@
+.fenlei header{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    background: #FF9900;
+    color: #fff;
+    text-align: center;
+    font-size: 0.4rem;
+}
+.fenlei .f_box{
+    display: flex;
+}
+.fenlei .f_box .f_p{
+    text-align: center;
+    /* border: 1px solid red; */
+    width: 30%;
+}
+.fenlei .f_box .f_p ul li{
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.3rem;
+    font-weight: 400;
+}
+.fenlei .f_box .f_c{
+    flex: 1;
+}
+.fenlei .f_box .f_c .f_img{
+    position: relative;
+    float: left;
+    margin-right: 0.2rem;
+    margin-top: 0.2rem;
+    width: 2.2rem;
+    height: 2.4rem;
+    border: 1px solid #1D84A7;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+.fenlei .f_box .f_c .f_img img{
+    width: 100%;
+    height: 100%;
+}
+.fenlei .f_box .f_c .f_img p{
+    text-align: center;
+    width: 100%;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.3rem;
+    color: #fff;
+    background: #1D84A7;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.active{
+    color: #FF9900;
+}

@@ -1,9 +1,24 @@
 import React from 'react'
-
-export default function Banner() {
+import { Carousel } from "antd-mobile"
+import "./banner.css"
+export default function Banner(props) {
+    const { banners } = props;
+   
     return (
-        <div>
-            <h2>this is banner</h2>
+
+        <div className="banner">
+            <Carousel>
+                {
+                    banners.map(item => {
+                        return (
+
+                            <img key={item.id} src={item.img} alt="" />
+
+
+                        )
+                    })
+                }
+            </Carousel>
         </div>
     )
 }

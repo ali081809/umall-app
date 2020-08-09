@@ -1,0 +1,16 @@
+.time{
+    background: #fff;
+    height: 1.88rem;
+    margin-bottom: 0.2rem;
+    border: 1px solid red;
+}
+.time .time_box{
+    text-align: center;
+    float: left;
+    margin-left: 0.15rem;
+    line-height: 0.4rem;
+}
+.time img{
+    width: 1.6rem;
+    height: 1.6rem;
+}

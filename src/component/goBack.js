@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import "./goback.css"
 import {withRouter} from "react-router-dom"
 
 class goBack extends Component {
@@ -8,7 +9,7 @@ class goBack extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="goback">
                 <button onClick={this.goBack.bind(this)}>返回</button>
             </div>
         )

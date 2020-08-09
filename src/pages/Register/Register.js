@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import { rqusestRegister } from "../../util/request"
 import { Toast, WhiteSpace, WingBlank, Button } from 'antd-mobile';
 import GoBack from "../../component/goBack"
+// 引入弹框
+import Alert from "../../util/Alert"
 import "./register.css"
 export default class Register extends Component {
     constructor() {
@@ -41,18 +43,18 @@ export default class Register extends Component {
     // 点击注册
     register() {
         if (this.state.user.phone === "" || this.state.user.nickname === "" || this.state.user.password === "") {
-            alert("属性不能为空！");
+            Alert("属性不能为空！");
             return;
         }
         rqusestRegister(this.state.user).then(res => {
             console.log(this.state.user)
             if (res.data.code === 200) {
                 this.empty()
-                alert(res.data.msg);
+                Alert(res.data.msg);
                 // this.showToast(res.data.msg)
                 this.props.history.push("/login")
             }else{
-                alert(res.data.msg)
+                Alert(res.data.msg)
             }
         })
     }

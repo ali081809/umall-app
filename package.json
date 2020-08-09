@@ -1,5 +1,5 @@
 {
-  "proxy":"http://localhost:3000",
+  "proxy": "http://localhost:3000",
   "name": "umall-app",
   "version": "0.1.0",
   "private": true,
@@ -35,5 +35,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
   }
 }

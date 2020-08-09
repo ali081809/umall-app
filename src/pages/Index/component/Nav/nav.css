@@ -11,6 +11,13 @@
 }
 .nav .findName{
     position: absolute;
-    top: 40%;
-    right: 0;
+    top: 20%;
+    right:1rem;
+}
+.nav .findName .input{
+    text-align: center;
+    width: 1.6rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+   background: #CCCCCC;
 }

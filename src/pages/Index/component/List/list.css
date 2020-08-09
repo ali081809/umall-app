@@ -1,0 +1,31 @@
+.list{
+    background: #fff;
+}
+.list .list_box{
+    display: flex;
+    margin-top: 0.2rem;
+}
+.list .list_box img{
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.2rem;
+}
+.list .list_box .con h3{
+    /* margin-top: 0.4rem; */
+    font-size: 0.34rem;
+    font-weight: 400;
+}
+.list .list_box .b_con{
+    margin-top: 0.6rem;
+}
+.list .list_box .con p{
+    color: #E23838;
+    font-weight: bold;
+}
+.list .list_box .con button{
+    width: 1.4rem;
+    height: 0.8rem;
+    border-radius: 0.2rem;
+    background: #FF9900;
+    color: #fff;
+}

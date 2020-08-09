@@ -24,3 +24,45 @@ export const rqusestRegister=(data)=>{
         data:qs.stringify(data)
     })
 }
+
+// 首页轮播图信息
+export const requestBanner=()=>{
+    return axios({
+        url:"/api/getbanner",
+    })
+}
+// 获取限时秒杀信息(首页)
+export const requestgetseckill=()=>{
+    return axios({
+        url:"/api/getseckill",
+    })
+}
+//获取商品信息(首页)
+export const requestgetGoods=()=>{
+    return axios({
+        url:"/api/getindexgoods",
+    })
+}
+
+//获取分类树形结构
+export const requestgetFenlei=()=>{
+    return axios({
+        url:"/api/getcatetree",
+    })
+}
+//获取分类商品
+export const requestgetFenleigoods=(params)=>{
+    return axios({
+        url:"/api/getgoods",
+        method:"get",
+        params:params
+    })
+}
+// 获取一个商品信息
+export const requestgetGoodsinfo=(params)=>{
+    return axios({
+        url:"/api/getgoodsinfo",
+        method:"get",
+        params:params
+    })
+}

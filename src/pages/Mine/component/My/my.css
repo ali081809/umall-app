@@ -1,0 +1,23 @@
+.my{
+    /* position: relative; */
+    /* border: 1px solid red; */
+    background: #fff;
+    height: 2.4rem;
+    padding: 0.2rem;
+}
+.my .my_box{
+    height: 100%;
+    position: relative;
+
+}
+.my .my_box .my_b{
+    position: absolute;
+    bottom: 0.1rem;
+}
+.my .my_box .my_b img{
+    margin-right: 0.2rem;
+}
+.my .my_box .my_b span{
+    font-size: 0.3rem;
+    font-weight: bold;
+}
