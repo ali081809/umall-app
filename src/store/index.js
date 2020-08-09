@@ -2,7 +2,7 @@
 import { createStore, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 // 引入请求接口
-import { requestBanner,requestgetGoods,requestgetFenlei,requestgetFenleigoods,requestgetGoodsinfo } from "../util/request"
+import { requestBanner,requestgetGoods,requestgetFenlei,requestgetFenleigoods,requestgetGoodsinfo,requestCartadd,requestCartList } from "../util/request"
 
 // 初始化状态
 const initStart = {
@@ -15,7 +15,11 @@ const initStart = {
     // 分类商品
     fenleigoods:[],
     // 一条商品信息
-    goodsinfo:{}
+    goodsinfo:{},
+    // 购物车
+    Cartadd:[],
+    //购物车列表
+    CartList:[]
 }
 
 // 轮播图页面逻辑操作
@@ -38,6 +42,18 @@ const changeFenleigoodsAction=(arr)=>{
 const changeGoodsinfoAction=(obj)=>{
     return {type:"changeGoodsinfo",goodsinfoList:obj}
 }
+// 购物车添加页面逻辑
+const changeCartaddAction=(arr)=>{
+    return {type:"changeCartadd",CartaddList:arr}
+}
+// 购物车列表页面逻辑
+const changeCartListAction=(arr)=>{
+    return {type:"changeCartList",CartList:arr}
+}
+
+
+
+
 
 // 轮播图页面请求
 export const requestBannerAction = () => {
@@ -88,6 +104,22 @@ export const requestgetGoodsinfoAction=(id)=>{
         })
     }
 }
+// 添加购物车发起请求
+export const requestCartaddAction=(params)=>{
+    return(dispatch,getState)=>{
+        requestCartadd(params).then(res=>{
+            dispatch(changeCartaddAction())
+        })
+    }
+}
+// 购物车列表发起请求
+export const requestCartListAction=(uid)=>{
+    return(dispatch,getState)=>{
+        requestCartList({uid:uid}).then(res=>{
+            dispatch(changeCartListAction(res.data.list))
+        })
+    }
+}
 
 
 // reducer
@@ -129,6 +161,20 @@ const reducer = (state = initStart, action) => {
                 ...state,
                 goodsinfo:action.goodsinfoList
             }
+            // 购物车添加
+        case "changeCartadd":
+            // {type:"changeCartadd",CartaddList:arr}
+            return{
+                ...state,
+                Cartadd:action.CartaddList
+            }
+            // 购物车列表
+        case "changeCartList":
+            // {type:"changeCartList",CartList:arr}
+            return{
+                ...state,
+                CartList:action.CartList
+            }
         default:
             return state
     }
@@ -145,6 +191,10 @@ export const fenleis=(state)=>state.fenleis
 export const fenleigoods=(state)=>state.fenleigoods
 // 一条商品信息
 export const goodsinfo=(state)=>state.goodsinfo
+// 购物车添加
+export const Cartadd=(state)=>state.Cartadd
+// 购物车列表
+export const CartList=(state)=>state.CartList
 
 // 创建仓库
 const store = createStore(reducer, applyMiddleware(thunk))

@@ -66,3 +66,19 @@ export const requestgetGoodsinfo=(params)=>{
         params:params
     })
 }
+// 加入购物车
+export const requestCartadd=(params)=>{
+    return axios({
+        url:"/api/cartadd",
+        method:"post",
+        data:qs.stringify(params)
+    })
+}
+// 购物车列表
+export const requestCartList=(params)=>{
+    return axios({
+        url:"/api/cartlist",
+        method:"get",
+        params:params
+    })
+}

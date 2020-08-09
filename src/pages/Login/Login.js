@@ -28,6 +28,8 @@ export default class Login extends Component {
     login(){
         rqusestLogin(this.state.user).then(res=>{
             if(res.data.code===200){
+                // 设置登录的标志
+                localStorage.setItem("isLogin",JSON.stringify(res.data.list))
                 this.props.history.push("/index")
             }else{
                 Alert(res.data.msg)
