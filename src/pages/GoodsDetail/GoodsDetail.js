@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 // 引入仓库 
 import { goodsinfo, requestgetGoodsinfoAction, Cartadd, requestCartaddAction } from "../../store"
 import { connect } from "react-redux"
+// 引入弹框
+import Alter from "../../util/Alert"
 
 // 引入返回组件
 import GoBack from "../../component/goBack"
@@ -12,9 +14,11 @@ class GoodsDetail extends Component {
     constructor() {
         super()
         this.state = {
+            n: 0,
+            isshow: false,
             params: {
-                uid: null,
-                goodsid: null,
+                uid: "",
+                goodsid: "",
                 num: 1
             }
         }
@@ -25,28 +29,58 @@ class GoodsDetail extends Component {
         this.props.requestGoodsinfo(id)
     }
     // 获取用户id
+    // 点击购物车显示
+    show() {
+        this.setState({
+            isshow: true
+        })
+
+    }
+    // 规格属性变色
+    changeN(index) {
+        this.setState({
+            n: index
+        })
+    }
+    // 点击取消
+    hide() {
+
+        this.setState({
+            isshow: false
+        })
+    }
+    // 点击蒙版层消失
+    maskClick(e) {
+        e.stopPropagation()
+    }
+
+
 
     // 点击加入购物车
     InputCart() {
-        // const{uid,id}=this.state
         let uid = JSON.parse(localStorage.getItem("isLogin")).uid
         let id = this.props.match.params.id;
-
         this.setState({
             params: {
                 ...this.state.params,
                 uid: uid,
-                id: id
+                goodsid: id
             }
 
+        }, () => {
+            this.props.requestCartadd(this.state.params);
+            this.setState({
+                isshow:false
+            })
+            Alter("添加成功！")
         })
-        console.log("1122", this.state.params.uid)
-        console.log(this.state.params)
-        this.props.requestCartadd(this.state.params)
+
 
     }
     render() {
         const { goodsinfo } = this.props
+        const { isshow, n } = this.state
+        // console.log(goodsinfo.specsattr)
         return (
             <div className="goodsDetail">
                 <header>
@@ -78,8 +112,31 @@ class GoodsDetail extends Component {
                 </div>
                 {/* 加入购物车 */}
                 <div className="Incart">
-                    <button onClick={this.InputCart.bind(this)}>加入购物车</button>
+                    <button onClick={this.show.bind(this)}>加入购物车</button>
                 </div>
+                {/* 详情加入购物车 */}
+                {/* 蒙版层 */}
+                {
+                    isshow ? (<div className="Incart_con" onClick={() => this.hide()}>
+                        <div className="Incart_con_main" onClick={this.maskClick.bind(this)}>
+                            <div className="In_b_tit">
+                                <img src={goodsinfo.img} alt="" />
+                                <p>{goodsinfo.goodsname}</p>
+                            </div>
+                            <p className="specsname">{goodsinfo.specsname}</p>
+                            <ul>
+                                {
+                                    goodsinfo.specsattr ? goodsinfo.specsattr.map((item, index) => {
+                                        return <li onClick={() => this.changeN(index)} className={n === index ? "active" : ""} key={item}>{item}</li>
+
+                                    }) : null
+                                }
+                            </ul>
+                            <button onClick={this.InputCart.bind(this)}>加入购物车</button>
+                        </div>
+
+                    </div>) : null
+                }
             </div>
         )
     }

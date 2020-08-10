@@ -1,3 +1,7 @@
+.goodsDetail{
+    width: 100%;
+    height: 100%;
+}
 .goodsDetail header{
     position: relative;
     height: 0.6rem;
@@ -99,4 +103,76 @@
     position: absolute;
     top: 0;
     right: 0;
+}
+/* 详情加入购物车 蒙版层 */
+.goodsDetail .Incart_con{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+    border: 1px solid red;
+}
+.goodsDetail .Incart_con .Incart_con_main{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #fff;
+}
+/* 详情的加入购物车按钮 */
+.goodsDetail .Incart_con .Incart_con_main button{
+    height: 1rem;
+    width:2rem;
+    background: #FF9900;
+    color: #fff;
+    font-size: .3rem;
+    position: absolute;
+    bottom: 10%;
+    right: 40%;
+}
+/* 商品 */
+.goodsDetail .Incart_con .Incart_con_main .In_b_tit{
+    display: flex;
+    padding: .2rem 0;
+}
+/* 商品图 */
+.goodsDetail .Incart_con .Incart_con_main .In_b_tit img{
+    display: block;
+    border-radius: .3rem;
+    margin: 0 .2rem;
+    width: 2rem;
+    height: 2rem;
+}
+/*商品名称 */
+.goodsDetail .Incart_con .Incart_con_main .In_b_tit p{
+    font-size: .4rem;
+    font-weight: 400;
+}
+/* 规格属性 */
+.goodsDetail .Incart_con .Incart_con_main .specsname{
+    font-size: .4rem;
+    font-weight: bold;
+    padding: .2rem;
+}
+.goodsDetail .Incart_con .Incart_con_main ul{
+    padding: .3rem;
+    overflow: hidden;
+}
+/* 商品规格 */
+.goodsDetail .Incart_con .Incart_con_main ul li{
+    float: left;
+    margin-left: .2rem;
+    width: 0.8rem;
+    height: .6rem;
+    text-align: center;
+    line-height: .6rem;
+    border: 1px solid #666;
+}
+.goodsDetail .Incart_con .Incart_con_main ul .active{
+    /* border-color: #FF9900; */
+    border: 1px solid #FF9900;
+    color: #FF9900;
 }
