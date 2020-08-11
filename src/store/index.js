@@ -22,6 +22,8 @@ const initStart = {
     CartList: [],
     // 购物车删除
     Cartdel: {},
+    // 是否全选
+    isAll: false
 }
 
 // 轮播图页面逻辑操作
@@ -157,10 +159,9 @@ export const changeChecked = (index) => {
 }
 
 // 全选购物车
-export const changeCheckedAll = (checked) => {
+export const changeCheckedAll = () => {
     return {
         type: 'changeCheckAll',
-        checked
     }
 }
 
@@ -214,44 +215,51 @@ const reducer = (state = initStart, action) => {
         // 购物车列表
         case "changeCartList":
             // {type:"changeCartList",CartList:arr}
-            let CartList = [...action.CartList]
-            let oldelist = [...state.CartList]
-            CartList.forEach((item,index) => {
-                if(oldelist.length>index){
-                    item.checked = oldelist[index].checked;
-                }else{
-                    item.checked = false;
-                }
-                
-            })
+            let CartList;//新的购物车列表
+            if (action.CartList) {
+                CartList = [...action.CartList]
+            }
+            // let CartList=[...action.CartList];
+            let oldelist = [...state.CartList]//旧的购物车列表
+            if (CartList) {
+                CartList.forEach((item, index) => {
+                    if (oldelist.length > index) {
+                        item.checked = oldelist[index].checked;
+                    } else {
+                        item.checked = false;
+                    }
+
+                })
+            }
             return {
                 ...state,
-                CartList: CartList
+                CartList: CartList ? CartList : []
             }
-        //修改购物车选中
+
+        // 修改购物车全选
+        case "changeCheckAll":
+            return {
+                ...state,
+                isAll: !state.isAll,
+                CartList: state.CartList.map(item => {
+                    item.checked = !state.isAll;
+                    return item;
+                })
+
+            }
+
+        //修改购物车单个选中
         case "changeChecked":
             let list = [...state.CartList]
             list[action.index].checked = !list[action.index].checked;
+            // console.log("11wwww",list[action.index])//单个单选框的数据
+            // console.log("22wwww",state.CartList)//全部单选框的数据
             return {
                 ...state,
-                CartList: list
-            }
-        // 修改购物车全选
-        case "changeCheckAll":
-            
-            let listAll = [...state.CartList];
-            let checked = true;
-            if (listAll.some(item=>item.checked)){
-                checked = false;
+                CartList: list,
+                isAll: list.every(item => item.checked)
             }
 
-            listAll.forEach(item => {
-                item.checked =checked;
-            })
-            return {
-                ...state,
-                CartList: listAll
-            }
         // 购物车删除
         case "changeCartdel":
             // {type:"changeCartdel",CartdelList:obj}
@@ -281,6 +289,8 @@ export const Cartadd = (state) => state.Cartadd
 export const CartList = (state) => state.CartList
 // 购物车删除
 export const Cartdel = (state) => state.Cartdel
+// 是否全选
+export const isAll = state => state.isAll;
 
 // 创建仓库
 const store = createStore(reducer, applyMiddleware(thunk))

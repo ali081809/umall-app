@@ -57,6 +57,10 @@
     align-items:center;
     
 }
+.cart .cart_con .haveCart .haveCart_con .checked{
+    width: .4rem;
+    height: .4rem;
+}
 .cart .cart_con .haveCart .haveCart_con img{
     width: 2rem;
     height: 2rem;
@@ -106,7 +110,7 @@
     background: #fff;
     position: fixed;
     left: 0;
-    bottom: 1.3rem;
+    bottom: 1.2rem;
     border-top: 1px solid #706F6F;
     display: flex;
 }

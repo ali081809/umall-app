@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {Switch,Route,Redirect} from "react-router-dom"
+import MyRouter from "./pages/MyRouter/MyRouter"
 import Login from "./pages/Login/Login"
 import Reg from"./pages/Register/Register"
 import Index from "./pages/Home/Home"
@@ -12,9 +13,9 @@ function App() {
       <Switch>
         <Route path="/login" component={Login}></Route>
         <Route path="/reg" component={Reg}></Route>
-        <Route path="/index" component={Index}></Route>
-        <Route path="/feileiDetail/:id/:catename" component={FenleiDetail}></Route>
-        <Route path="/goodsDetail/:id" component={GoodsDetail}></Route>
+        <MyRouter path="/index" component={Index}></MyRouter>
+        <MyRouter path="/feileiDetail/:id/:catename" component={FenleiDetail}></MyRouter>
+        <MyRouter path="/goodsDetail/:id" component={GoodsDetail}></MyRouter>
 
         {/* 重定向 */}
         <Redirect to="/login"></Redirect>
